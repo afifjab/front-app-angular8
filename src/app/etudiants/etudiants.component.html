@@ -1,0 +1,76 @@
+
+<head>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+
+<body>
+  <div class="container" *ngIf="listformation">
+    <div class="card ">
+      <div class="card-header text-white bg-info mb-3">Liste Etudiants</div>
+      <div class="card-body text-info">
+        <span  *ngFor="let f of listformation._embedded.formations">
+          <button (click)="onGetEtuiant(f)" [ngClass]="f.id==curantformation?'btn btn-danger':'btn btn-info'">{{f.nom}}</button>
+        </span>
+          <p></p>
+        <table *ngIf="listetudient" class="table">
+          <tr>
+            <th>
+              id_etudiant
+            </th>
+            <th>
+              nom
+            </th>
+            <th>
+              prenom
+            </th>
+          </tr>
+          <tr *ngFor="let e of listetudient._embedded.etudients">
+            <th>{{e.id}}</th>
+            <th>{{e.nom}}</th>
+            <th>{{e.prenom}}</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <!--<div class="card text-left">
+    <div class="card card-header">
+      Liste Etudients composant etudiants
+    </div>
+    <div class="card-body">
+        <span  *ngFor="let f of listformation._embedded.formations">
+          <button class="btn btn-primary">{{f.nom}}</button>
+        </span>
+    </div>
+  </div>-->
+
+<!--<h1 class="h1">Liste Etudients composant etudiants</h1>
+{{mail}}
+<table *ngIf="listformation" class="table">
+  <tr>
+    <th>
+      id_formation
+    </th>
+    <th>
+      nom
+    </th>
+    <th>
+      durée
+    </th>
+  </tr>
+  <tr *ngFor="let f of listformation._embedded.formations">
+    <th>{{f.id}}</th>
+    <th>{{f.nom}}</th>
+    <th>{{f.duree}}</th>
+  </tr>
+</table>-->
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
